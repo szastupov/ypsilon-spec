@@ -1,0 +1,17 @@
+--- Makefile.orig	2008-12-23 11:56:02.000000000 +0300
++++ Makefile	2009-06-13 20:43:09.973238712 +0400
+@@ -23,12 +23,8 @@
+ UNAME 	 = $(shell uname -a)
+ 
+ ifndef DATAMODEL
+-  ifeq (, $(findstring x86_64, $(UNAME)))
+-    ifeq (, $(findstring amd64, $(UNAME)))
+-      DATAMODEL = ILP32
+-    else
+-      DATAMODEL = LP64
+-    endif
++  ifeq ($(shell echo | $(CXX) -E -dM - | grep '__LP64__'), )
++    DATAMODEL = ILP32
+   else
+     DATAMODEL = LP64
+   endif

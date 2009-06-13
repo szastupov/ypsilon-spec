@@ -7,6 +7,7 @@ Group:		Development/Languages
 License:	BSD
 URL:		http://code.google.com/p/ypsilon/
 Source0:	http://ypsilon.googlecode.com/files/%{name}-%{version}.tar.gz
+Patch0:		use-gcc-not-uname-to-detect-architecture.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %description
@@ -18,6 +19,7 @@ multi-core CPU system.
 
 %prep
 %setup -q
+%patch0 -p0
 
 
 %build
