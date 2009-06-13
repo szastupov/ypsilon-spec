@@ -7,9 +7,7 @@ Group:		Development/Languages
 License:	BSD
 URL:		http://code.google.com/p/ypsilon/
 Source0:	http://ypsilon.googlecode.com/files/%{name}-%{version}.tar.gz
-BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
-
-BuildRequires:	make
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %description
 Ypsilon is an implementation of the Scheme programming language which conforms
@@ -43,4 +41,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man*/*
 
 %changelog
+* Sat Jun 13 2009 Stepan Zastupov <redchrom@gmail.com> - 0.9.6.update3-1
+Initial specfile for Ypsilon
 
