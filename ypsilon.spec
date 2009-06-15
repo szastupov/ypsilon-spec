@@ -7,6 +7,8 @@ Group:		Development/Languages
 License:	BSD
 URL:		http://code.google.com/p/ypsilon/
 Source0:	http://ypsilon.googlecode.com/files/%{name}-%{version}.tar.gz
+# Fix built inside x86 chroot on x86_64 machines
+# http://code.google.com/p/ypsilon/issues/detail?id=85
 Patch0:		use-gcc-not-uname-to-detect-architecture.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
